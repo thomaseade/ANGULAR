@@ -1,0 +1,32 @@
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: URL("assets/fondo home.png");
+    background-size: cover;
+    background-position: center;
+ 
+  }
+  
+  .promotion {
+    text-align: center;
+  }
+  
+  .promotion h1 {
+    padding: 10%;
+    font-size: 48px;
+    font-weight: bold;
+    color:white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.2;
+  }
+  
+  .promotion p {
+    padding: 10%;
+    font-size: 36px;
+    color:white;
+    margin-top: 20px;
+  }
+  
