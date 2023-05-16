@@ -1,0 +1,22 @@
+header {
+    background-color: #01b36f;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  h1 {
+    font-size: 36px;
+    margin: 0;
+    color: white; 
+    font-family: "Arial", sans-serif;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: white; 
+    margin-left: 10px;
+    font-weight:initial;
+    margin-right: 50px;
+  }
