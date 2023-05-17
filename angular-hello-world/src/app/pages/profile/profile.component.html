@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box left-box">
+          <div class="profile">
+            <img id="imagenPerfil" src="assets/iamgen perfil.png" alt="Imagen de Perfil">
+            <h2>Nombre y Apellidos</h2>
+            <p>Nombre: {{ user.name }}</p>
+            <p>Apellidos: {{ user.last_name }}</p>
+            <p>Correo: {{ user.email }}</p>
+          </div>
+        </div>
+        <div class="box right-box">
+          <div class="modify-form">
+            <h2>Modificar Datos</h2>
+            <form (submit)="onSubmit()">
+              <label for="nombreInput">Nombre</label>
+              <input type="text" id="nombreInput" placeholder="Ingrese su nombre">
+              <label for="apellidosInput">Apellidos</label>
+              <input type="text" id="apellidosInput" placeholder="Ingrese sus apellidos">
+              <label for="correoInput">Correo</label>
+              <input type="email" id="correoInput" placeholder="Ingrese su correo electrónico">
+              <label for="urlInput">URL</label>
+              <input type="text" id="urlInput" placeholder="Ingrese la URL">
+              <button type="submit">Modificar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+  </body>
+
+
+</html>

@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+ 
+
+  }
+  
+  .container {
+    display: flex;
+    height: 75vh;
+  }
+  
+  .box {
+    flex: 1;
+    padding: 40px;
+    border: 2px solid #ccc;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .left-box {
+    border-color: #01b36f;
+    border-radius: 5%;
+    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .right-box {
+    border-color: #01b36f;
+    border-radius: 5%;
+    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.1);
+
+  }
+  
+  .profile {
+    text-align: center;
+  }
+  
+  .profile-image {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .profile h2 {
+    margin-top: 10px;
+    color: #212529;
+  }
+  
+  .modify-form label {
+    display: block;
+    margin-top: 40px;
+    color: #212529;
+  }
+  
+  .modify-form input {
+    width: 100%;
+    margin-top: 20px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .modify-form button {
+    margin-top: 40px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .modify-form button:hover {
+    background-color: #0056b3;
+  }
+
+ 
