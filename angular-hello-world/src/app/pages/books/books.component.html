@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container">
+      <div *ngIf="books.length === 0">
+        <p>No hay libros disponibles.</p>
+      </div>
+      
+      <div class="card-container">
+        <div class="card" *ngFor="let book of books; let even = even" [ngClass]="{ 'even-card': even, 'odd-card': !even }">
+          <img [src]="book.photo" alt="Portada del libro">
+          <h3>{{ book.title }}</h3>
+          <p>Autor: {{ book.author }}</p>
+          <p>Tipo: {{ book.type }}</p>
+          <p>Precio: {{ book.price }}</p>
+          <p>{{ book.id_book | bookCode }}</p>
+          <button [ngClass]="{ 'even-button': even, 'odd-button': !even }">Comprar</button>
+        </div>
+      </div>
+
+
+
+        <div class="add-book-form">
+            <h2>Añadir nuevo libro</h2>
+            <form (submit)="addBook()">
+              <label>ID del libro:</label>
+              <input type="number" name="id_book" [(ngModel)]="newBook.id_book" required>
+              <label>ID del usuario:</label>
+              <input type="number" name="id_user" [(ngModel)]="newBook.id_user" required>
+              <label>Título:</label>
+              <input type="text" name="title" [(ngModel)]="newBook.title" required>
+              <label>Tipo:</label>
+              <input type="text" name="type" [(ngModel)]="newBook.type" required>
+              <label>Autor:</label>
+              <input type="text" name="author" [(ngModel)]="newBook.author" required>
+              <label>Precio:</label>
+              <input type="number" name="price" [(ngModel)]="newBook.price" required>
+              <label>Foto:</label>
+              <input type="text" name="photo" [(ngModel)]="newBook.photo" required>
+              <button type="submit">Agregar libro</button>
+            </form>
+          </div>
+
+
+            
+       
+    </div>
+</body>
+</html>
