@@ -14,15 +14,13 @@
       </div>
       
       <div class="card-container">
-        <div class="card" *ngFor="let book of books; let even = even" [ngClass]="{ 'even-card': even, 'odd-card': !even }">
-          <img [src]="book.photo" alt="Portada del libro">
-          <h3>{{ book.title }}</h3>
-          <p>Autor: {{ book.author }}</p>
-          <p>Tipo: {{ book.type }}</p>
-          <p>Precio: {{ book.price }}</p>
-          <p>{{ book.id_book | bookCode }}</p>
-          <button [ngClass]="{ 'even-button': even, 'odd-button': !even }">Comprar</button>
-        </div>
+        <app-card
+        *ngFor="let book of books; let even = even"
+        [book]="book"
+        [even]="even"
+        [books]="books"
+        (delete)="deleteBook($event)"
+      ></app-card>
       </div>
 
 

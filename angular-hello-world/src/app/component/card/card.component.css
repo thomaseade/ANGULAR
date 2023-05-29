@@ -1,0 +1,46 @@
+.card {
+    background-color: #ebe4e4;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.1);
+    border: 2px solid aquamarine;
+    margin: 70px;
+  }
+  
+  .even-card {
+    background-color: #ebebeb;
+  }
+  
+  .odd-card {
+    background-color: #f5f5f5;
+  }
+  .even-card {
+    background-color: #ebebeb;
+  }
+  
+  .odd-card {
+    background-color: #f5f5f5;
+  }
+  
+  .even-button {
+    background-color: #86c7f3;
+    color: white;
+  }
+  
+  .odd-button {
+    background-color: #f3a786;
+    color: white;
+  }
+
+  .delete-button-container {
+    align-self: flex-end;
+    margin-bottom: 4px;
+  }
+  
+  .delete-button {
+    background-color: red;
+    color: white;
+    padding: 4px 8px;
+    border: none;
+    cursor: pointer;
+  }

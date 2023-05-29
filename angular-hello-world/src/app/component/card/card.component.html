@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="card" [ngClass]="{ 'even-card': even, 'odd-card': !even }">
+        <div class="delete-button-container">
+            <button class="delete-button" (click)="deleteCard()">X</button>
+          </div>
+        <img [src]="book.photo" alt="Portada del libro">
+        <h3>{{ book.title }}</h3>
+        <p>Autor: {{ book.author }}</p>
+        <p>Tipo: {{ book.type }}</p>
+        <p>Precio: {{ book.price }}</p>
+        <p>{{ book.id_book | bookCode }}</p>
+        <button [ngClass]="{ 'even-button': even, 'odd-button': !even }">Comprar</button>
+      </div>
+
+
+</body>
+</html>
