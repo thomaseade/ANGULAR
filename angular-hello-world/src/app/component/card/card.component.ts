@@ -13,11 +13,7 @@ import { Book } from "src/app/pages/books/books.component";
     @Output() delete: EventEmitter<Book> = new EventEmitter<Book>();
   
    
-  deleteCard() {
-    const index = this.books.indexOf(this.book);
-    if (index !== -1) {
-      this.books.splice(index, 1);
-      this.delete.emit(this.book);
+    deleteCard() {
+        this.delete.emit(this.book);
       }
-    }
   }

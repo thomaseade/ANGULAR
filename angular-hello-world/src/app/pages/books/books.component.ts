@@ -18,6 +18,7 @@ export class BooksComponent {
     this.books.push(this.newBook);
     this.newBook = new Book(0, 0, "", "", "", 0, "");
   }
+  
   deleteBook(book: Book) {
     const index = this.books.indexOf(book);
     if (index !== -1) {
