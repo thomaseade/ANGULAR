@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BookService } from 'src/app/shared/bookservice.service';
 
 
 
@@ -14,26 +15,18 @@ export class BooksComponent {
   newBook: Book = new Book(0, 0, "", "", "", 0, "");
 
   addBook() {
-   
-    this.books.push(this.newBook);
+    this.bookService.addBook(this.newBook);
     this.newBook = new Book(0, 0, "", "", "", 0, "");
   }
   
   deleteBook(book: Book) {
-    const index = this.books.indexOf(book);
-    if (index !== -1) {
-      this.books.splice(index, 1);
-    }
+    this.bookService.deleteBook(book);
   }
 
-  constructor() {
+  constructor(private bookService: BookService) {
    
-    this.books.push(
-      new Book(1, 100, "Codenotch", "Novela", "Dani", 10.99, "assets/libro-icono.png"),
-      new Book(2, 200, "2023", "Ciencia ficción", "Thomas Eade", 8.99, "assets/libro-icono.png"),
-      new Book(undefined, undefined, "Mogly", "Novela", "John Lennon", 12.99, "assets/libro-icono.png"),
-  
-    );
+   this.books = this.bookService.getBooks();
+   
   }}
 
   export class Book {
