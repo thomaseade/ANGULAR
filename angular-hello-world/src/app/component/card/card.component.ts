@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { Book } from "src/app/pages/books/books.component";
+import { BookService } from "src/app/shared/bookservice.service";
 
 @Component({
     selector: 'app-card',
@@ -11,10 +12,12 @@ import { Book } from "src/app/pages/books/books.component";
     @Input() even: boolean;
     @Input() books: Book[];
     @Output() delete: EventEmitter<Book> = new EventEmitter<Book>();
-  
+
+    constructor(private bookService: BookService) {}
+
+    deleteCard() {
+      this.bookService.deleteBook(this.book);
+    }
    
-  deleteCard() {
-    
-      this.delete.emit(this.book);
-      }
+
     }

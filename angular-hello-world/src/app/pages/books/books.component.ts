@@ -13,6 +13,9 @@ export class BooksComponent {
   
   books: Book[] = []; 
   newBook: Book = new Book(0, 0, "", "", "", 0, "");
+  searchId: number | null = null;
+
+
 
   addBook() {
     this.bookService.addBook(this.newBook);
@@ -26,8 +29,30 @@ export class BooksComponent {
   constructor(private bookService: BookService) {
    
    this.books = this.bookService.getBooks();
-   
-  }}
+  }
+
+  searchBooks() {
+    if (this.searchId === null) {
+      this.books = this.bookService.getBooks();
+    } else {
+      const book = this.bookService.getBookById(this.searchId);
+      if (book) {
+        this.books = [book];
+      } else {
+        this.books = [];
+      }
+    }
+  }
+
+  resetSearch() {
+    this.searchId = null;
+    this.books = this.bookService.getBooks();
+  }
+
+ 
+}
+
+
 
   export class Book {
     id_book: number;

@@ -8,21 +8,34 @@
 </head>
 <body>
 
+  
+
     <div class="container">
+
+      <div class="search-container">
+        <form (submit)="searchBooks()">
+          <input type="number" name="searchId" [(ngModel)]="searchId" placeholder="Buscar por ID del libro">
+          <button type="submit">Buscar</button>
+          <button type="button" (click)="resetSearch()">Mostrar todos</button>
+        </form>
+      </div>
+
+
       <div *ngIf="books.length === 0">
         <p>No hay libros disponibles.</p>
       </div>
       
       <div class="card-container">
         <app-card
-        *ngFor="let book of books; let even = even"
-        [book]="book"
-        [even]="even"
-        [books]="books"
-        (delete)="deleteBook($event)"
-      ></app-card>
+          *ngFor="let book of books; let even = even"
+          [book]="book"
+          [even]="even"
+          [books]="books"
+          (delete)="deleteBook($event)"
+        >
+          <a [routerLink]="['/updatebook', book.id_book]">Editar</a>
+        </app-card>
       </div>
-
 
 
         <div class="add-book-form">

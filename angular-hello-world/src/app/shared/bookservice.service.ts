@@ -29,4 +29,15 @@ export class BookService {
       this.books.splice(index, 1);
     }
   }
+  
+  updateBook(book: Book): void {
+    const index = this.books.findIndex(b => b.id_book === book.id_book);
+    if (index !== -1) {
+      this.books[index] = book;
+    }
+  }
+
+  getBookById(id: number): Book | undefined {
+    return this.books.find(book => book.id_book === id);
+  }
 }

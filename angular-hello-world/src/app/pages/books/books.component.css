@@ -94,3 +94,55 @@
   .add-book-form button[type="submit"]:hover {
     background-color: #45a049;
   }
+
+
+
+  .search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  input[type="text"] {
+    width: 400px;
+    height: 60px;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: 2px solid aquamarine;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #f8f8f8;
+    color: #333;
+  }
+  
+  input[type="text"]::placeholder {
+    color: #999;
+  }
+  
+  input[type="text"]:focus {
+
+    outline: none;
+    border-color: aquamarine;
+    box-shadow: 0 4px 6px rgba(0, 128, 128, 0.3);
+  }
+  
+  button {
+    width: 120px;
+    height: 30px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 3px solid aquamarine;
+    background-color: rgb(9, 184, 125);
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: aqua;
+  }
+  
+  button:focus {
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0, 128, 128, 0.3);
+  }
