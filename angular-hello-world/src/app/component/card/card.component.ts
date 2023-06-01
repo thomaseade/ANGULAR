@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
-import { Book } from "src/app/pages/books/books.component";
+import { Book } from "src/app/models/book"; 
 import { BookService } from "src/app/shared/bookservice.service";
 
 @Component({
