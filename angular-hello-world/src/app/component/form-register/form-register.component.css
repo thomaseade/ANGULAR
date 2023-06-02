@@ -35,18 +35,10 @@
     border: 1px solid #ccc;
     border-radius: 5px;
   }
-  
+
+
   button[type="submit"] {
-    background-color: #01b36f;
-    color: white;
-    margin-top: 20px;
-    padding: 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: green;
+   height: 50px;;
+   margin-top: 20px;
   }
   

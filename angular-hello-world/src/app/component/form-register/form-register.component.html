@@ -7,38 +7,52 @@
     <title>Document</title>
 </head>
 <body>
-
-    <div class="container">
-    <form>
-        <h2>Regístrate</h2>
-        <div>
-          <label for="nombre">Nombre:</label>
-          <input type="text" id="nombre" name="nombre">
+  <div class="container">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <h2>Regístrate</h2>
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" formControlName="nombre" [ngClass]="{ 'is-invalid': registerForm.get('nombre').invalid && (registerForm.get('nombre').dirty || registerForm.get('nombre').touched) }">
+        <div class="invalid-feedback" *ngIf="registerForm.get('nombre').invalid && (registerForm.get('nombre').dirty || registerForm.get('nombre').touched)">
+          <div *ngIf="registerForm.get('nombre').errors.required">El nombre es obligatorio.</div>
         </div>
-        <div>
-          <label for="apellido">Apellido:</label>
-          <input type="text" id="apellido" name="apellido">
+      </div>
+      <div class="form-group">
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" formControlName="apellido" [ngClass]="{ 'is-invalid': registerForm.get('apellido').invalid && (registerForm.get('apellido').dirty || registerForm.get('apellido').touched) }">
+        <div class="invalid-feedback" *ngIf="registerForm.get('apellido').invalid && (registerForm.get('apellido').dirty || registerForm.get('apellido').touched)">
+          <div *ngIf="registerForm.get('apellido').errors.required">El apellido es obligatorio.</div>
         </div>
-        <div>
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email">
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" formControlName="email" [ngClass]="{ 'is-invalid': registerForm.get('email').invalid && (registerForm.get('email').dirty || registerForm.get('email').touched) }">
+        <div class="invalid-feedback" *ngIf="registerForm.get('email').invalid && (registerForm.get('email').dirty || registerForm.get('email').touched)">
+          <div *ngIf="registerForm.get('email').errors.required">El email es obligatorio.</div>
+          <div *ngIf="registerForm.get('email').errors.email">El email no es válido.</div>
         </div>
-        <div>
-          <label for="url">URL:</label>
-          <input type="text" id="url" name="url">
+      </div>
+      <div class="form-group">
+        <label for="url">URL:</label>
+        <input type="text" id="url" formControlName="url">
+      </div>
+      <div class="form-group">
+        <label for="contrasena">Contraseña:</label>
+        <input type="password" id="contrasena" formControlName="contrasena" [ngClass]="{ 'is-invalid': registerForm.get('contrasena').invalid && (registerForm.get('contrasena').dirty || registerForm.get('contrasena').touched) }">
+        <div class="invalid-feedback" *ngIf="registerForm.get('contrasena').invalid && (registerForm.get('contrasena').dirty || registerForm.get('contrasena').touched)">
+          <div *ngIf="registerForm.get('contrasena').errors.required">La contraseña es obligatoria.</div>
         </div>
-        <div>
-          <label for="contrasena">Contraseña:</label>
-          <input type="password" id="contrasena" name="contrasena">
+      </div>
+      <div class="form-group">
+        <label for="repetirContrasena">Repetir Contraseña:</label>
+        <input type="password" id="repetirContrasena" formControlName="repetirContrasena" [ngClass]="{ 'is-invalid': registerForm.get('repetirContrasena').invalid && (registerForm.get('repetirContrasena').dirty || registerForm.get('repetirContrasena').touched) }">
+        <div class="invalid-feedback" *ngIf="registerForm.get('repetirContrasena').invalid && (registerForm.get('repetirContrasena').dirty || registerForm.get('repetirContrasena').touched)">
+          <div *ngIf="registerForm.get('repetirContrasena').errors.required">La confirmación de contraseña es obligatoria.</div>
         </div>
-        <div>
-          <label for="repetirContrasena">Repetir Contraseña:</label>
-          <input type="password" id="repetirContrasena" name="repetirContrasena">
-        </div>
-        <button type="submit">Registrarse</button>
-      </form>
-    </div>
-
+      </div>
+      <button type="submit" [disabled]="registerForm.invalid">Registrarse</button>
+    </form>
+  </div>
 
 </body>
 </html>

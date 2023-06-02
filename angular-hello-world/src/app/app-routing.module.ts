@@ -6,6 +6,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { BooksComponent } from './pages/books/books.component';
 import { AddBookComponent } from './pages/add-book/add-book.component';
 import { UpdateBookComponent } from './pages/update-book/update-book.component';
+import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
@@ -16,7 +17,9 @@ const routes: Routes = [
   {path:'UpdateBooks', component:UpdateBookComponent},
   {path:'addBook', component:AddBookComponent},
   { path: '', redirectTo: '/books', pathMatch: 'full' },
-  { path: 'update-book/:id', component: UpdateBookComponent }, // Nueva ruta para update-book con un parámetro id
+  { path: 'update-book/:id', component: UpdateBookComponent }, 
+  { path: 'login', component: LoginComponent },
+ 
 ];
 
 @NgModule({
