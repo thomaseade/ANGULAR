@@ -10,10 +10,23 @@ import { Book } from 'src/app/models/book';
 export class AddBookComponent {
   newBook: Book = new Book(0, 0, '', '', '', 0, '');
 
-  constructor(private bookService: BookService) {}
+
+  constructor(private bookService: BookService) { }
 
   addBook() {
-    this.bookService.addBook(this.newBook);
-    this.newBook = new Book(0, 0, '', '', '', 0, '');
+    this.bookService.add(this.newBook).subscribe(
+      (response) => {
+        console.log(response);
+       
+      },
+      (error) => {
+        console.log(error);
+       
+      }
+    );
   }
 }
+
+
+
+

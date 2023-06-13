@@ -1,43 +1,36 @@
 import { Injectable } from '@angular/core';
 import { Book } from '../models/book';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BookService {
-  private books: Book[] = [];
 
-  constructor() {
-    this.books.push(
-      new Book(1, 100, "Codenotch", "Novela", "Dani", 10.99, "assets/libro-icono.png"),
-      new Book(2, 200, "2023", "Ciencia ficción", "Thomas Eade", 8.99, "assets/libro-icono.png"),
-      new Book(undefined, undefined, "Mogly", "Novela", "John Lennon", 12.99, "assets/libro-icono.png"),
-    );
-  }
 
-  getBooks(): Book[] {
-    return this.books;
-  }
+private url:string = 'http://localhost:3000/books'
+constructor(private http:HttpClient){}
 
-  addBook(book: Book): void {
-    this.books.push(book);
-  }
 
-  deleteBook(book: Book): void {
-    const index = this.books.indexOf(book);
-    if (index !== -1) {
-      this.books.splice(index, 1);
-    }
-  }
-  
-  updateBook(book: Book): void {
-    const index = this.books.findIndex(b => b.id_book === book.id_book);
-    if (index !== -1) {
-      this.books[index] = book;
-    }
-  }
+getAll() {
+  return this.http.get(this.url);
+}
 
-  getBookById(id: number): Book | undefined {
-    return this.books.find(book => book.id_book === id);
-  }
+getOne(id_book: number) {
+  const url = `${this.url}/${id_book}`;
+  return this.http.get(url);
+}
+
+add(book: any) {
+  return this.http.post(this.url, book);
+}
+
+edit(book: any) {
+  return this.http.put(this.url, book);
+}
+
+delete(id_book: number) {
+  const url = `${this.url}/${id_book}`;
+  return this.http.delete(url);
+}
 }

@@ -16,7 +16,17 @@ export class UpdateBookComponent {
 
   constructor(private bookService: BookService) {}
 
+
   updateBook() {
-    this.bookService.updateBook(this.updatedBook);
+    this.bookService.edit(this.updatedBook).subscribe(
+      (response) => {
+        console.log(response);
+      
+      },
+      (error) => {
+        console.log(error);
+       
+      }
+    );
   }
 }

@@ -10,46 +10,65 @@ import { Book } from 'src/app/models/book';
   
 })
 export class BooksComponent {
-  
-  books: Book[] = []; 
-  newBook: Book = new Book(0, 0, "", "", "", 0, "");
+  books: Book[] = [];
+  newBook: Book = new Book(0, 0, '', '', '', 0, '');
   searchId: number | null = null;
 
-
+  constructor(private bookService: BookService) {
+    this.getBooks();
+  }
 
   addBook() {
-    this.bookService.addBook(this.newBook);
-    this.newBook = new Book(0, 0, "", "", "", 0, "");
+    this.bookService.add(this.newBook).subscribe(
+      (response) => {
+        console.log(response);
+        this.newBook = new Book(0, 0, '', '', '', 0, '');
+        this.getBooks();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
-  
+
   deleteBook(book: Book) {
-    this.bookService.deleteBook(book);
+    this.bookService.delete(book.id).subscribe(
+      (response) => {
+        console.log(response);
+        this.getBooks();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
-
-  constructor(private bookService: BookService) {
-   
-   this.books = this.bookService.getBooks();
-  }
-
   searchBooks() {
     if (this.searchId === null) {
-      this.books = this.bookService.getBooks();
+      this.getBooks();
     } else {
-      const book = this.bookService.getBookById(this.searchId);
-      if (book) {
-        this.books = [book];
-      } else {
-        this.books = [];
-      }
+      this.bookService.getOne(this.searchId).subscribe(
+        (book) => {
+          this.books = book ? [book as Book] : [];
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
     }
   }
-
   resetSearch() {
     this.searchId = null;
-    this.books = this.bookService.getBooks();
+    this.getBooks();
   }
 
- 
+  private getBooks() {
+    this.bookService.getAll().subscribe(
+      (books) => {
+        this.books = books as Book[];
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 }
-
-

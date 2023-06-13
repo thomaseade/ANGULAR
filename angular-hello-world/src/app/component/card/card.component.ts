@@ -16,8 +16,15 @@ import { BookService } from "src/app/shared/bookservice.service";
     constructor(private bookService: BookService) {}
 
     deleteCard() {
-      this.bookService.deleteBook(this.book);
+      this.bookService.delete(this.book.id).subscribe(
+        (response) => {
+          console.log(response);
+      
+        },
+        (error) => {
+          console.log(error);
+        
+        }
+      );
     }
-   
-
-    }
+  }
