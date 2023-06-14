@@ -18,15 +18,11 @@ export class UpdateBookComponent {
 
 
   updateBook() {
-    this.bookService.edit(this.updatedBook).subscribe(
+    this.bookService.edit(this.updatedBook.id, this.updatedBook).subscribe(
       (response) => {
         console.log(response);
-      
       },
-      (error) => {
-        console.log(error);
-       
-      }
+    
     );
   }
 }

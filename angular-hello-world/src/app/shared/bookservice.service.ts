@@ -25,10 +25,10 @@ add(book: any) {
   return this.http.post(this.url, book);
 }
 
-edit(book: any) {
-  return this.http.put(this.url, book);
+edit(id: number, book: any) {
+  const url = `${this.url}/${id}`;
+  return this.http.put(url, book);
 }
-
 delete(id_book: number) {
   const url = `${this.url}/${id_book}`;
   return this.http.delete(url);

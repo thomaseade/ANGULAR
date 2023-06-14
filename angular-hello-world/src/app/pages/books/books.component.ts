@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { BookService } from 'src/app/shared/bookservice.service';
 import { Book } from 'src/app/models/book';
-
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-books',
@@ -14,9 +14,14 @@ export class BooksComponent {
   newBook: Book = new Book(0, 0, '', '', '', 0, '');
   searchId: number | null = null;
 
-  constructor(private bookService: BookService) {
+  constructor(   private bookService: BookService,
+    private route: ActivatedRoute,
+    private router: Router) {
     this.getBooks();
   }
+
+
+
 
   addBook() {
     this.bookService.add(this.newBook).subscribe(
@@ -25,11 +30,12 @@ export class BooksComponent {
         this.newBook = new Book(0, 0, '', '', '', 0, '');
         this.getBooks();
       },
-      (error) => {
-        console.log(error);
-      }
+     
     );
   }
+
+
+
 
   deleteBook(book: Book) {
     this.bookService.delete(book.id).subscribe(
@@ -37,11 +43,13 @@ export class BooksComponent {
         console.log(response);
         this.getBooks();
       },
-      (error) => {
-        console.log(error);
-      }
+    
     );
   }
+
+
+
+
   searchBooks() {
     if (this.searchId === null) {
       this.getBooks();
@@ -50,25 +58,34 @@ export class BooksComponent {
         (book) => {
           this.books = book ? [book as Book] : [];
         },
-        (error) => {
-          console.log(error);
-        }
+      
       );
     }
   }
+
+
+
+
   resetSearch() {
     this.searchId = null;
     this.getBooks();
   }
 
+
+
+
+  navigateToUpdateBook(bookId: number) {
+    this.router.navigate(['/updatebook', bookId]);
+  }
+
+
+  
   private getBooks() {
     this.bookService.getAll().subscribe(
       (books) => {
         this.books = books as Book[];
       },
-      (error) => {
-        console.log(error);
-      }
+   
     );
   }
 }
