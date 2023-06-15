@@ -10,7 +10,7 @@
     
     <div class="card" [ngClass]="{ 'even-card': even, 'odd-card': !even }">
         <div class="delete-button-container">
-            <button class="delete-button" (click)="deleteCard()">X</button>
+            <button class="delete-button" (click)="enviarId()">X</button>
           </div>
         <img [src]="book.photo" alt="Portada del libro">
         <h3>{{ book.title }}</h3>

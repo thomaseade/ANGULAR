@@ -31,11 +31,12 @@
           [book]="book"
           [even]="even"
           [books]="books"
+          (delete)="deleteBook($event)"
         >
-          <a (click)="navigateToUpdateBook(book.id)">Editar</a>
-          <button (click)="deleteBook(book.id)">X</button>
+          <a [routerLink]="['/updatebook', book.id_book]">Editar</a>
         </app-card>
       </div>
+
 
        
         

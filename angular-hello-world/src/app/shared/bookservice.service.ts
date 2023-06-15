@@ -17,7 +17,7 @@ getAll() {
 }
 
 getOne(id_book: number) {
-  const url = `${this.url}/${id_book}`;
+  const url = `${this.url}?id=${id_book}`;
   return this.http.get(url);
 }
 
@@ -25,12 +25,14 @@ add(book: any) {
   return this.http.post(this.url, book);
 }
 
-edit(id: number, book: any) {
-  const url = `${this.url}/${id}`;
-  return this.http.put(url, book);
+edit(book: any) {
+  return this.http.put(this.url, book);
 }
-delete(id_book: number) {
-  const url = `${this.url}/${id_book}`;
-  return this.http.delete(url);
+
+
+delete(id_book:number){
+  return this.http.request('delete', this.url, {body:{id_book:id_book}});
 }
+
+
 }

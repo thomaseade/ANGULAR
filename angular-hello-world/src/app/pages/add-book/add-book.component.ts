@@ -19,10 +19,7 @@ export class AddBookComponent {
         console.log(response);
        
       },
-      (error) => {
-        console.log(error);
-       
-      }
+    
     );
   }
 }

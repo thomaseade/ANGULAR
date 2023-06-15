@@ -20,30 +20,26 @@ export class BooksComponent {
     this.getBooks();
   }
 
+  // addBook() {
+  //   this.bookService.add(this.newBook).subscribe(
+  //     (response) => {
+  //       console.log(response);
+  //       this.newBook = new Book(0, 0, '', '', '', 0, '');
+  //       this.getBooks();
+  //     },
+   
+  //   );
+  // }
 
 
 
-  addBook() {
-    this.bookService.add(this.newBook).subscribe(
-      (response) => {
-        console.log(response);
-        this.newBook = new Book(0, 0, '', '', '', 0, '');
-        this.getBooks();
-      },
-     
-    );
-  }
-
-
-
-
-  deleteBook(book: Book) {
-    this.bookService.delete(book.id).subscribe(
+  deleteBook(id:number) {
+    this.bookService.delete(id).subscribe(
       (response) => {
         console.log(response);
         this.getBooks();
       },
-    
+      
     );
   }
 
@@ -63,23 +59,15 @@ export class BooksComponent {
     }
   }
 
-
-
-
   resetSearch() {
     this.searchId = null;
     this.getBooks();
   }
 
-
-
-
   navigateToUpdateBook(bookId: number) {
     this.router.navigate(['/updatebook', bookId]);
   }
 
-
-  
   private getBooks() {
     this.bookService.getAll().subscribe(
       (books) => {
