@@ -31,6 +31,7 @@ edit(book: any) {
 
 
 delete(id_book:number){
+  console.log(id_book);
   return this.http.request('delete', this.url, {body:{id_book:id_book}});
 }
 

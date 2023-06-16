@@ -34,11 +34,12 @@ export class BooksComponent {
 
 
   deleteBook(id:number) {
+    console.log(id);
     this.bookService.delete(id).subscribe(
-      (response) => {
+      (response : string) => {
         console.log(response);
         this.getBooks();
-      },
+      }
       
     );
   }
@@ -70,9 +71,10 @@ export class BooksComponent {
 
   private getBooks() {
     this.bookService.getAll().subscribe(
-      (books) => {
-        this.books = books as Book[];
-      },
+      (books:Book []) => {
+        this.books = books ;
+        console.log(this.books)
+      }
    
     );
   }
