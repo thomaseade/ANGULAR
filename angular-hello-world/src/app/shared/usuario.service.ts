@@ -4,13 +4,18 @@ import { User } from '../models/user';
 
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class UsuarioService {
   private url: string = 'http://localhost:3000';
 
+  logueado: boolean = false;
+  usuario: { email: string, password: string } = { email: '', password: '' };
+
   constructor(private http: HttpClient) {}
 
-
+ 
 
 
 

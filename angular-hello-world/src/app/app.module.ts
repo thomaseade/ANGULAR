@@ -18,6 +18,7 @@ import { FormLoginComponent } from './component/form-login/form-login.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { UsuarioService } from './shared/usuario.service';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -48,6 +49,8 @@ import { UsuarioService } from './shared/usuario.service';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    RouterModule,
+    
   ],
   providers: [UsuarioService],
   bootstrap: [AppComponent]
