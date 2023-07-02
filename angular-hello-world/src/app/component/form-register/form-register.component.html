@@ -11,17 +11,17 @@
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
       <h2>Regístrate</h2>
       <div class="form-group">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" formControlName="nombre" [ngClass]="{ 'is-invalid': registerForm.get('nombre').invalid && (registerForm.get('nombre').dirty || registerForm.get('nombre').touched) }">
-        <div class="invalid-feedback" *ngIf="registerForm.get('nombre').invalid && (registerForm.get('nombre').dirty || registerForm.get('nombre').touched)">
-          <div *ngIf="registerForm.get('nombre').errors.required">El nombre es obligatorio.</div>
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" formControlName="name" [ngClass]="{ 'is-invalid': registerForm.get('name').invalid && (registerForm.get('name').dirty || registerForm.get('name').touched) }">
+        <div class="invalid-feedback" *ngIf="registerForm.get('name').invalid && (registerForm.get('name').dirty || registerForm.get('name').touched)">
+          <div *ngIf="registerForm.get('name').errors.required">El nombre es obligatorio.</div>
         </div>
       </div>
       <div class="form-group">
-        <label for="apellido">Apellido:</label>
-        <input type="text" id="apellido" formControlName="apellido" [ngClass]="{ 'is-invalid': registerForm.get('apellido').invalid && (registerForm.get('apellido').dirty || registerForm.get('apellido').touched) }">
-        <div class="invalid-feedback" *ngIf="registerForm.get('apellido').invalid && (registerForm.get('apellido').dirty || registerForm.get('apellido').touched)">
-          <div *ngIf="registerForm.get('apellido').errors.required">El apellido es obligatorio.</div>
+        <label for="last_name">Apellido:</label>
+        <input type="text" id="last_name" formControlName="last_name" [ngClass]="{ 'is-invalid': registerForm.get('last_name').invalid && (registerForm.get('last_name').dirty || registerForm.get('last_name').touched) }">
+        <div class="invalid-feedback" *ngIf="registerForm.get('last_name').invalid && (registerForm.get('last_name').dirty || registerForm.get('last_name').touched)">
+          <div *ngIf="registerForm.get('last_name').errors.required">El apellido es obligatorio.</div>
         </div>
       </div>
       <div class="form-group">
@@ -33,26 +33,25 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="url">URL:</label>
-        <input type="text" id="url" formControlName="url">
+        <label for="photo">Foto de perfil:</label>
+        <input type="text" id="photo" formControlName="photo">
       </div>
       <div class="form-group">
-        <label for="contrasena">Contraseña:</label>
-        <input type="password" id="contrasena" formControlName="contrasena" [ngClass]="{ 'is-invalid': registerForm.get('contrasena').invalid && (registerForm.get('contrasena').dirty || registerForm.get('contrasena').touched) }">
-        <div class="invalid-feedback" *ngIf="registerForm.get('contrasena').invalid && (registerForm.get('contrasena').dirty || registerForm.get('contrasena').touched)">
-          <div *ngIf="registerForm.get('contrasena').errors.required">La contraseña es obligatoria.</div>
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" formControlName="password" [ngClass]="{ 'is-invalid': registerForm.get('password').invalid && (registerForm.get('password').dirty || registerForm.get('password').touched) }">
+        <div class="invalid-feedback" *ngIf="registerForm.get('password').invalid && (registerForm.get('password').dirty || registerForm.get('password').touched)">
+          <div *ngIf="registerForm.get('password').errors.required">La contraseña es obligatoria.</div>
         </div>
       </div>
       <div class="form-group">
-        <label for="repetirContrasena">Repetir Contraseña:</label>
-        <input type="password" id="repetirContrasena" formControlName="repetirContrasena" [ngClass]="{ 'is-invalid': registerForm.get('repetirContrasena').invalid && (registerForm.get('repetirContrasena').dirty || registerForm.get('repetirContrasena').touched) }">
-        <div class="invalid-feedback" *ngIf="registerForm.get('repetirContrasena').invalid && (registerForm.get('repetirContrasena').dirty || registerForm.get('repetirContrasena').touched)">
-          <div *ngIf="registerForm.get('repetirContrasena').errors.required">La confirmación de contraseña es obligatoria.</div>
+        <label for="repeatPassword">Repetir Contraseña:</label>
+        <input type="password" id="repeatPassword" formControlName="repeatPassword" [ngClass]="{ 'is-invalid': registerForm.get('repeatPassword').invalid && (registerForm.get('repeatPassword').dirty || registerForm.get('repeatPassword').touched) }">
+        <div class="invalid-feedback" *ngIf="registerForm.get('repeatPassword').invalid && (registerForm.get('repeatPassword').dirty || registerForm.get('repeatPassword').touched)">
+          <div *ngIf="registerForm.get('repeatPassword').errors.required">La confirmación de contraseña es obligatoria.</div>
         </div>
       </div>
       <button type="submit" [disabled]="registerForm.invalid">Registrarse</button>
     </form>
   </div>
-
 </body>
 </html>
