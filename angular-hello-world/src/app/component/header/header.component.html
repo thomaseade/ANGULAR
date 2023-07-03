@@ -10,13 +10,18 @@
     <header>
         <h1>MyBooks</h1>
         <nav>
-          <a routerLink="/home">Home</a>
-          <a routerLink="/register">Register</a>
-          <a routerLink="/profile">Profile</a>
-          <a routerLink="/books">Books</a>
-          <a routerLink="/UpdateBooks">UpdateBooks</a>
-          <a routerLink="/addBook">addBook</a>
-          <a routerLink="/login" >Login</a>
+         <!--  usuario no conectado  -->
+
+          <a *ngIf="!usuarioService.logueado" routerLink="/home">Home</a>
+          <a *ngIf="!usuarioService.logueado" routerLink="/register">Register</a>
+          <a *ngIf="!usuarioService.logueado" routerLink="/login">Login</a>
+      
+          <!--   usuario conectado    -->
+          
+          <a *ngIf="usuarioService.logueado" routerLink="/profile">Profile</a>
+          <a *ngIf="usuarioService.logueado" routerLink="/books">Books</a>
+          <a *ngIf="usuarioService.logueado" routerLink="/UpdateBooks">UpdateBooks</a>
+          <a *ngIf="usuarioService.logueado" routerLink="/addBook">AddBook</a>
         </nav>
       </header>
     

@@ -18,6 +18,8 @@ export class FormLoginComponent implements OnInit {
     private router: Router
   ) { }
 
+
+
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -25,7 +27,15 @@ export class FormLoginComponent implements OnInit {
     });
   }
 
+
+
+
+
+
+  
+
   login(): void {
+  
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
       const user = new User(); 

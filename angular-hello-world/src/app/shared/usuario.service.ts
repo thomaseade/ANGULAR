@@ -11,7 +11,7 @@ export class UsuarioService {
   private url: string = 'http://localhost:3000';
 
   logueado: boolean = false;
-  usuario: { email: string, password: string } = { email: '', password: '' };
+  usuario: User = new User();
 
   constructor(private http: HttpClient) {}
 
