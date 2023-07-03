@@ -14,7 +14,7 @@ import { Book } from "src/app/models/book";
 
 
   enviarId () {
-    console.log(this.book.id)
-   this.delete.emit(this.book.id)
+    console.log(this.book.id_book)
+   this.delete.emit(this.book.id_book)
   }
   }

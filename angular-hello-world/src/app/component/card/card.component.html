@@ -17,7 +17,7 @@
         <p>Autor: {{ book.author }}</p>
         <p>Tipo: {{ book.type }}</p>
         <p>Precio: {{ book.price }}</p>
-        <p>{{ book.id | bookCode }}</p>
+        <p>{{ book.id_book | bookCode }}</p>
         <button [ngClass]="{ 'even-button': even, 'odd-button': !even }">Comprar</button>
       </div>
 

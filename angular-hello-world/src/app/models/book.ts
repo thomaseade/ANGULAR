@@ -1,5 +1,5 @@
 export class Book {
-  id: number;
+  id_book: number;
   id_user: number;
   title: string;
   type: string;
@@ -8,7 +8,7 @@ export class Book {
   photo: string;
 
   constructor(
-    id: number = 0,
+    id_book: number = 0,
     id_user: number = 0,
     title: string,
     type: string,
@@ -16,7 +16,7 @@ export class Book {
     price: number,
     photo: string
   ) {
-    this.id = id;
+    this.id_book = id_book;
     this.id_user = id_user;
     this.title = title;
     this.type = type;

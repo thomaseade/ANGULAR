@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { BookService } from 'src/app/shared/bookservice.service';
 import { Book } from 'src/app/models/book';
 import { ActivatedRoute, Router } from '@angular/router';
+import { UsuarioService } from 'src/app/shared/usuario.service';
 
 @Component({
   selector: 'app-books',
@@ -16,7 +17,8 @@ export class BooksComponent {
 
   constructor(   private bookService: BookService,
     private route: ActivatedRoute,
-    private router: Router) {
+    private router: Router,
+    private usuarioService: UsuarioService) {
     this.getBooks();
   }
 
@@ -69,13 +71,16 @@ export class BooksComponent {
     this.router.navigate(['/updatebook', bookId]);
   }
 
+
+
+
   private getBooks() {
-    this.bookService.getAll().subscribe(
-      (books:Book []) => {
-        this.books = books ;
-        console.log(this.books)
+    const userId = this.usuarioService.usuario.id_user;
+    this.bookService.getBooksByUser(userId).subscribe(
+      (books: Book[]) => {
+        this.books = books;
+        console.log(this.books);
       }
-   
     );
   }
 }
