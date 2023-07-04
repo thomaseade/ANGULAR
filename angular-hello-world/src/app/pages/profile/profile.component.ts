@@ -1,6 +1,8 @@
 
 import { Component } from '@angular/core';
 import { User } from '../../models/user';
+import { UsuarioService } from '../../shared/usuario.service';
+
 
 @Component({
   selector: 'app-profile',
@@ -10,14 +12,27 @@ import { User } from '../../models/user';
 export class ProfileComponent {
   user: User = new User();
 
-  onSubmit() {
-    this.user.name = document.getElementById('nombreInput')['value'];
-    this.user.last_name = document.getElementById('apellidosInput')['value'];
-    this.user.email = document.getElementById('correoInput')['value'];
-  
-    let url = document.getElementById('urlInput')['value'];
+  constructor(private usuarioService: UsuarioService) {
+    this.getUserData();
+  }
 
-    let imagenPerfil = document.getElementById('imagenPerfil');
-    imagenPerfil.setAttribute('src', url);
+
+  getUserData() {
+    const userId = this.usuarioService.getUserId();
+    this.usuarioService.getUser(userId).subscribe(
+      (user: User) => {
+        this.user = user;
+      },
+      
+    );
+  }
+
+  onSubmit() {
+    this.usuarioService.edit(this.user).subscribe(
+      () => {
+        console.log('Datos de usuario actualizados correctamente');
+      },
+    
+    );
   }
 }

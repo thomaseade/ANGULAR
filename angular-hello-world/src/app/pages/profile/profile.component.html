@@ -11,10 +11,10 @@
     <div class="container">
         <div class="box left-box">
           <div class="profile">
-            <img id="imagenPerfil" src="assets/iamgen perfil.png" alt="Imagen de Perfil">
+            <img id="imagenPerfil" [src]="user.photo" alt="Imagen de Perfil">
             <h2>Nombre y Apellidos</h2>
             <p>Nombre: {{ user.name }}</p>
-            <p>Apellidos: {{ user.last_name }}</p>
+            <p>Apellidos: {{ user.last_name }}</p> 
             <p>Correo: {{ user.email }}</p>
           </div>
         </div>
@@ -23,19 +23,17 @@
             <h2>Modificar Datos</h2>
             <form (submit)="onSubmit()">
               <label for="nombreInput">Nombre</label>
-              <input type="text" id="nombreInput" placeholder="Ingrese su nombre">
+              <input type="text" id="nombreInput" name="nombre" placeholder="Ingrese su nombre" [(ngModel)]="user.name">
               <label for="apellidosInput">Apellidos</label>
-              <input type="text" id="apellidosInput" placeholder="Ingrese sus apellidos">
+              <input type="text" id="apellidosInput" name="apellidos" placeholder="Ingrese sus apellidos" [(ngModel)]="user.last_name">
               <label for="correoInput">Correo</label>
-              <input type="email" id="correoInput" placeholder="Ingrese su correo electrónico">
+              <input type="email" id="correoInput" name="correo" placeholder="Ingrese su correo electrónico" [(ngModel)]="user.email">
               <label for="urlInput">URL</label>
-              <input type="text" id="urlInput" placeholder="Ingrese la URL">
+              <input type="text" id="urlInput" name="url" placeholder="Ingrese la URL" [(ngModel)]="user.photo">
               <button type="submit">Modificar</button>
             </form>
           </div>
         </div>
       </div>
-  </body>
-
-
+</body>
 </html>

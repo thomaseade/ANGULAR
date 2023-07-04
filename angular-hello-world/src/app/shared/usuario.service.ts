@@ -37,4 +37,18 @@ export class UsuarioService {
   login(user: User) {
     return this.http.post(`${this.url}/login`, user);
   }
+
+
+  getUser(userId: number) {
+    const url = `${this.url}/users/${userId}`;
+    return this.http.get<User>(url);
+  }
+
+  edit(user: User) {
+    const url = `${this.url}/usuarios`;
+    return this.http.put(url, user);
+  }
+
+
+
 } 
