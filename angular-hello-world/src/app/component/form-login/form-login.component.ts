@@ -32,28 +32,30 @@ export class FormLoginComponent implements OnInit {
 
 
 
-  
+  // metodo login que crea un objeto usuario con todos sus datos menos la contraseña, importante para el Id_user
 
   login(): void {
-  
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
       const user = new User(); 
       user.email = email;
       user.password = password;
-
+  
       this.usuarioService.login(user).subscribe(
         (response: any) => {
+          console.log(response); 
           if (response.success) {
             console.log('Inicio de sesión exitoso');
+            console.log(this.usuarioService.usuario)
             this.usuarioService.logueado = true;
-            this.usuarioService.usuario = user;
+            this.usuarioService.usuario = response.user;// Asignar el usuario devuelto por la respuesta
+            console.log(this.usuarioService.usuario) 
             this.router.navigate(['/books']);
           } else {
             console.log(response.message);
           }
         }
-      )
+      );
     } 
-    }
+  }
   }

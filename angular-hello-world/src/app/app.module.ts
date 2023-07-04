@@ -19,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { UsuarioService } from './shared/usuario.service';
 import { RouterModule } from '@angular/router';
+import { BookService } from './shared/bookservice.service';
 
 
 
@@ -52,7 +53,7 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     
   ],
-  providers: [UsuarioService],
+  providers: [UsuarioService, BookService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

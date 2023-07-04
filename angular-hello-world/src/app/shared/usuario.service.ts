@@ -15,7 +15,15 @@ export class UsuarioService {
 
   constructor(private http: HttpClient) {}
 
- 
+
+
+ //recibir la id del usuario del objeto user que se crea cuando se loguea el usuario
+  getUserId(): number {
+    console.log('ID de usuario:', this.usuario.Id_user);
+    return this.usuario.Id_user;
+
+  }
+
 
 
 

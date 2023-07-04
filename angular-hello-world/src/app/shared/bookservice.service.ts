@@ -11,6 +11,8 @@ export class BookService {
 
   constructor(private http: HttpClient) { }
 
+
+
   getAll() {
     return this.http.get<Book[]>(this.url);
   }
@@ -35,7 +37,28 @@ export class BookService {
   }
 
 
+
+
+
+
+
+
+//mostrar los libros asignados a un usuario cuando se redirije a la pagina books tras loguearse
   getBooksByUser(userId: number) {
-    return this.http.get(`${this.url}/books?id_user=${userId}`);
+    console.log((this.url));
+    const url = `${this.url}?id_user=${userId}`;
+    return this.http.get<Book[]>(url);
   }
+
+
+
+// metodo para el buscador de pagina books, buscar libro por su id_book.
+
+
+
+
 }
+
+
+
+

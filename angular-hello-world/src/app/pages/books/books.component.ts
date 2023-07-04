@@ -14,6 +14,7 @@ export class BooksComponent {
   books: Book[] = [];
   newBook: Book = new Book(0, 0, '', '', '', 0, '');
   searchId: number | null = null;
+  userId: number;
 
   constructor(   private bookService: BookService,
     private route: ActivatedRoute,
@@ -74,13 +75,27 @@ export class BooksComponent {
 
 
 
+
+
+  // recibe los libros, del Id_user que se loguea
+
   private getBooks() {
-    const userId = this.usuarioService.usuario.id_user;
-    this.bookService.getBooksByUser(userId).subscribe(
-      (books: Book[]) => {
-        this.books = books;
-        console.log(this.books);
-      }
-    );
-  }
+  this.bookService.getBooksByUser(this.usuarioService.getUserId()).subscribe(
+    (books: Book[]) => {
+      console.log(books); //comprobar que llegna libros
+      this.books = books;
+    },
+    
+  );
+}
+
+
+
+// metodo para buscar un libro por su id_book
+
+
+
+
+
+
 }
