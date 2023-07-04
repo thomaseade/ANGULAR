@@ -23,29 +23,8 @@ export class BooksComponent {
     this.getBooks();
   }
 
-  // addBook() {
-  //   this.bookService.add(this.newBook).subscribe(
-  //     (response) => {
-  //       console.log(response);
-  //       this.newBook = new Book(0, 0, '', '', '', 0, '');
-  //       this.getBooks();
-  //     },
-   
-  //   );
-  // }
 
 
-
-  deleteBook(id:number) {
-    console.log(id);
-    this.bookService.delete(id).subscribe(
-      (response : string) => {
-        console.log(response);
-        this.getBooks();
-      }
-      
-    );
-  }
 
 
 
@@ -54,23 +33,26 @@ export class BooksComponent {
     if (this.searchId === null) {
       this.getBooks();
     } else {
-      this.bookService.getOne(this.searchId).subscribe(
+      const userId = this.usuarioService.getUserId();
+      this.bookService.getBookByUserAndId(userId, this.searchId).subscribe(
         (book) => {
-          this.books = book ? [book as Book] : [];
+          this.books = book ? [book] : [];
         },
-      
+        (error) => {
+          console.log(error);
+        }
       );
     }
   }
+
+
 
   resetSearch() {
     this.searchId = null;
     this.getBooks();
   }
 
-  navigateToUpdateBook(bookId: number) {
-    this.router.navigate(['/updatebook', bookId]);
-  }
+ 
 
 
 
@@ -91,11 +73,30 @@ export class BooksComponent {
 
 
 
-// metodo para buscar un libro por su id_book
+// metodo para borrar un libro por su id_book;
 
 
 
 
-
-
+deleteBook(bookId: number) {
+  this.bookService.delete(bookId).subscribe(
+    () => {
+      console.log('Libro eliminado correctamente');
+      // Actualizar la lista de libros después de eliminar uno
+      const userId = this.usuarioService.getUserId();
+      this.bookService.getBooksByUser(userId).subscribe(
+        (response) => {
+          this.books = response;
+        },
+        
+      );
+    },
+    
+  );
 }
+}
+
+
+
+
+

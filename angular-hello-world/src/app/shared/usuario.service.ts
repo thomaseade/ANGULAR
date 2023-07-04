@@ -13,7 +13,7 @@ export class UsuarioService {
   logueado: boolean = false;
   usuario: User = new User();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,) {}
 
 
 
